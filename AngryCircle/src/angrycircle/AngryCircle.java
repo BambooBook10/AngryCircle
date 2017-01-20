@@ -22,7 +22,7 @@ public class AngryCircle extends Application {
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
-        btn.setText("ゲームを作ろう");
+        btn.setText("ゲームを作ろう!!!!");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
