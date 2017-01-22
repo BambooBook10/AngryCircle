@@ -22,6 +22,7 @@ public class TestPush extends Application {
         stage.setWidth(800);
         stage.setHeight(200);
         Label msg = new Label("田舎のPRO-BOX");
+        msg.setOnMouseClicked(e -> msg.setText("田舎のランボルギーニ"));
         msg.setFont(new Font(80));
         stage.setScene(new Scene(msg));
         stage.show();
