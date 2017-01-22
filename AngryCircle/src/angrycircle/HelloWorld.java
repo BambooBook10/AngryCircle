@@ -12,9 +12,9 @@ import javafx.stage.Stage;
  */
 public class HelloWorld extends Application {
     
-    public static void main(String... str) {
-        Application.launch(str);
-    }
+//    public static void main(String... str) {
+//        Application.launch(str);
+//    }
 
     @Override
     public void start(Stage stage) throws Exception {
