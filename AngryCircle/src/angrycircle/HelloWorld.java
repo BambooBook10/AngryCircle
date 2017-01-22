@@ -22,6 +22,7 @@ public class HelloWorld extends Application {
         stage.setWidth(800);
         stage.setHeight(200);
         Label msg = new Label("AngryCircle Title");
+        msg.setOnMouseClicked(e -> msg.setText("やったぜ!!!"));
         msg.setFont(new Font(80));
         stage.setScene(new Scene(msg));
         stage.show();
