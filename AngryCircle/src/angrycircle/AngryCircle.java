@@ -8,9 +8,13 @@ package angrycircle;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -18,24 +22,22 @@ import javafx.stage.Stage;
  * @author take5
  */
 public class AngryCircle extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("ゲームを作ろう!!!!");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Angry Circle!!!");
-            }
-        });
+
+        Group root = new Group();
+        Scene scene = new Scene(root, 800, 600);
+
+        Canvas canvas = new Canvas(800, 600);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        gc.setFill(Color.BLUE);
+        gc.fillRect(75, 75, 100, 100);
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        canvas.setOnMouseClicked(e -> gc.fillRect(e.getX(), e.getY(), 10, 10));
         
-        Scene scene = new Scene(root, 300, 250);
-        
+        root.getChildren().add(canvas);
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -47,5 +49,5 @@ public class AngryCircle extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
