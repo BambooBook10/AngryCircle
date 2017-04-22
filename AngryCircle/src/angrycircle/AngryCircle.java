@@ -5,6 +5,7 @@
  */
 package angrycircle;
 
+import java.io.File;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,6 +15,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.effect.Light;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -32,14 +34,18 @@ public class AngryCircle extends Application {
     @Override
     public void start(Stage primaryStage) {
 
+        int sceneWidth = 800;
+        int sceneHeight = 600;
+        
         Group root = new Group();
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, sceneWidth, sceneHeight);
 
-        Canvas canvas = new Canvas(800, 600);
+        Canvas canvas = new Canvas(sceneWidth, sceneHeight);
         GraphicsContext gc = canvas.getGraphicsContext2D();
+        
+        Image img = new Image("https://s3-ap-northeast-1.amazonaws.com/s3b-dev-angrycircle/image-dev/siki2.jpg");
 
-        gc.setFill(Color.BLUE);
-        gc.fillRect(75, 75, 100, 100);
+        gc.drawImage(img, 0, 0, sceneWidth, sceneWidth);
 
         canvas.setOnMousePressed(e -> {
             startX = e.getX();
